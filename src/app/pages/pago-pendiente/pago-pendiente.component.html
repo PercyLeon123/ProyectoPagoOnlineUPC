@@ -1,1 +1,44 @@
-<p>pago-pendiente works!</p>
+<div class="container mt-5">
+    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+        <thead>
+            <tr>
+                <th nzCustomFilter>
+                    Factura
+                    <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                        <i nz-icon nzType="search"></i>
+                    </nz-filter-trigger>
+                </th>
+
+                <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>
+                <th>
+                    Opcionés
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of nzTable.data">
+                <td>{{ data.Factura }}</td>
+                <td>{{ data.Afpr }}</td>
+                <td>{{ data.Code }}</td>
+                <td>{{ data.Fraciona }}</td>
+                <td>{{ data.Desfraccion }}</td>
+                <td>{{ data.Desafr1 }}</td>
+                <td>{{ data.ImporteDeuda }}</td>
+                <td>{{ data.Fecha }}</td>
+                <td><a href="">Pagar</a></td>
+            </tr>
+        </tbody>
+    </nz-table>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+        <div class="ant-table-filter-dropdown">
+            <div class="search-box">
+                <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+                <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+        Search
+      </button>
+                <button nz-button nzSize="small" (click)="reset()">Reset</button>
+            </div>
+        </div>
+    </nz-dropdown-menu>
+
+</div>
