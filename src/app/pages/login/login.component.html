@@ -9,7 +9,7 @@
 				</div>
 
 				<div class="form-group form-group-feedback form-group-feedback-left">
-					<input type="text" class="form-control" placeholder="Usuario">
+					<input type="text" class="form-control" placeholder="Usuario o DNI">
 						<div class="form-control-feedback"><i class="icon-user text-muted"></i></div>
 				</div>
 
@@ -19,14 +19,13 @@
 				</div>
 
 				<div class="form-group">
-					<button (click)="onSubmit()" type="submit" class="btn btn-primary btn-block">Ingresar <i class="icon-circle-right2 ml-2"></i></button>
+					<button (click)="onSubmit()" type="submit" class="btn btn-primary btn-block">Ingresar<i class="icon-circle-right2 ml-2"></i></button>
 				</div>
 
 				<div class="text-center">
-					<a href="login_password_recover.html">¿Olvidaste tu contraseña?</a>
+					<a routerLink="/Restablecercont">¿Olvidaste tu contraseña?</a>
 				</div>
 			</div>
 		</div>
   </form>
-
 </div>
