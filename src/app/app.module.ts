@@ -11,13 +11,14 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
+import { LoginComponent } from './pages/login/login.component';
 
 registerLocaleData(en);
 
@@ -31,16 +32,19 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     AppComponent,
     PagoPendienteComponent,
     MenuComponent,
-    PagoOnlineComponent
+    PagoOnlineComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     DemoNgZorroAntdModule
+
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]
