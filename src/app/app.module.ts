@@ -19,6 +19,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { LoginComponent } from './pages/login/login.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 registerLocaleData(en);
 
@@ -33,7 +34,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     PagoPendienteComponent,
     MenuComponent,
     PagoOnlineComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,6 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HttpClientModule,
     BrowserAnimationsModule,
     DemoNgZorroAntdModule
-
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]
