@@ -1,0 +1,47 @@
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h4>Estimado contribuyente :</h4> 
+        <p class="lead"></p>
+        <p class="lead">Desde este formulario podras consultar el historial del pago de tus contribuciones  </p>
+        <hr class="my-4">   
+    </div>
+  
+
+    <div class="card card-body text-center">
+        <h6 class="font-weight-semibold">Filtro por año de recaudación </h6>												
+        <ul class="pagination pagination-separated align-self-center">
+            <li class="page-item"><a href="#" class="page-link">← &nbsp; Prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">2018</a></li>
+            <li class="page-item"><a href="#" class="page-link">2019</a></li>
+            <li class="page-item active"><a href="#" class="page-link">2020</a></li>            
+            <li class="page-item"><a href="#" class="page-link">Next &nbsp; →</a></li>
+        </ul>
+    </div>	
+  
+
+  <div class="container mt-5">
+    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+        <thead>
+            <tr>                
+                <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>              
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let data of nzTable.data">
+                <td>{{ data.Anio }}</td>
+                <td>{{ data.Vencimiento }}</td>
+                <td>{{ data.Fechapago }}</td>
+                <td>{{ data.NroOperacion }}</td>
+                <td>{{ data.Transaccion }}</td>
+                <td>{{ data.Fact }}</td>
+                <td>{{ data.afrp1 }}</td>
+                <td>{{ data.desafrp1 }}</td>
+                <td>{{ data.Fecha }}</td>                
+                <td>{{ data.ImporteDeuda }}</td>
+    
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
+</div>
+
