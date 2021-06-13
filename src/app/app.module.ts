@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +44,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    DemoNgZorroAntdModule
+    DemoNgZorroAntdModule,
+    FormsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]
