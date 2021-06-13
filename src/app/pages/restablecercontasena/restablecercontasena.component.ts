@@ -15,18 +15,13 @@ export class RestablecercontasenaComponent implements OnInit {
   constructor(private fb:FormBuilder) { }
  onSubmit() {
     if(this.RestableceForm.valid){
+      console.log(this.RestableceForm.value);
     }else{
       alert("DNI o Usuario no valido");
     }
   }
 
   ngOnInit(): void {
-    this.RestableceForm=this.fb.group({
-      dni: ['', Validators.required],
-      usuario: ['', Validators.required],
-
-    });
-
   }
 
 }
