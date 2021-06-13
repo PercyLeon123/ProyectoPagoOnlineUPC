@@ -1,0 +1,30 @@
+<div class="login-dark content d-flex justify-content-center align-items-center">
+  <form [formGroup]="RestableceForm" method="post" style="background-color: beige;">
+    <div class="card mb-0">
+			<div class="card-body">
+				<div class="text-center mb-3">
+					<img src="assets/images/escudo.png" alt="Escudo" width="90" height="100">
+					<h5 class="mb-0">Recuperar contraseña</h5>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Dni" autocomplete="off">
+          <small class="form-text text-danger d-none">Ingrese un Dni valido</small>
+				</div>
+
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Usuario" autocomplete="off">
+          <small class="form-text text-danger d-none">Ingrese un Usuario valido</small>
+				</div>
+
+				<div class="form-group">
+					<button (click)="onSubmit()" type="submit" style="background-color: cadetblue;" class="btn btn-primary btn-block">Continuar<i class="icon-circle-right2 ml-2"></i></button>
+				</div>
+
+				<div class="text-center">
+          <span class="d-block text-muted">*Ingrese sus datos y presione "Continuar"</span>
+        </div>
+			</div>
+		</div>
+  </form>
+</div>

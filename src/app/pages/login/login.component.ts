@@ -7,7 +7,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  form: FormGroup
   IngresoForm=this.fl.group({
     user: ['',Validators.required],
     password: ['',Validators.required],
