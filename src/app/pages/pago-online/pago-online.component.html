@@ -1,1 +1,66 @@
-<p>pago-online works!</p>
+<div class="container my-5">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Pago Pendiente 10-05-2021</h4>
+        <p> Hola <b>Percy Leon</b> paga en linea con cualquiera de tus tarjetas, no dejes que los interese aumenten</p>
+        <hr>
+        <p class="mb-0">Paga seguro tus arbitrios desde nuestra plataforma</p>
+      </div>
+</div>
+
+<div class="container my-5">
+    <form class="needs-validation" novalidate="">
+        <hr class="mb-4">
+
+        <h4 class="mb-3">Paga en Linea</h4>
+
+        <div class="d-block my-3">
+          <div class="custom-control custom-radio">
+            <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+            <label class="custom-control-label" for="credit">Credit card</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="debit">Debit card</label>
+          </div>
+          <div class="custom-control custom-radio">
+            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+            <label class="custom-control-label" for="paypal">PayPal</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cc-name">Name on card</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+            <small class="text-muted">Nombre de la Tarjeta</small>
+            <div class="invalid-feedback">
+              Nombre de la tarjeta es requerido
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cc-number">Numero de cuenta</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+            <div class="invalid-feedback">
+              El numero de cuenta es requerido
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 mb-3">
+            <label for="cc-expiration">Fecha de vencimiento</label>
+            <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
+            <div class="invalid-feedback">
+                La feecha de vencimiento es requerido
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label for="cc-cvv">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="" required="">
+            <div class="invalid-feedback">
+              El codigo de seguridad es requerido
+            </div>
+          </div>
+        </div>
+        <hr class="mb-4">
+        <button class="btn btn-primary btn-lg btn-block" type="submit">Realizar Pago</button>
+      </form>
+</div>
