@@ -41,6 +41,11 @@ export class HistorialPagoComponent implements OnInit {
       compare: (a: historialpago, b: historialpago) => a.NroOperacion.localeCompare(b.NroOperacion),
       priority: 4
     },   
+    {
+      title: 'Transacción',
+      compare: (a: historialpago, b: historialpago) => a.Transaccion.localeCompare(b.Transaccion),
+      priority: 5
+    },
   
   {
     title: 'Fact',
@@ -57,16 +62,12 @@ export class HistorialPagoComponent implements OnInit {
 
 
     {
-      title: 'Afrp1',
+      title: 'Descripción Afrp1',
       compare: (a: historialpago, b: historialpago) => a.desafrp1.localeCompare(b.desafrp1),
       priority: 7
     },    
 
-    {
-      title: 'Transacción',
-      compare: (a: historialpago, b: historialpago) => a.Transaccion.localeCompare(b.Transaccion),
-      priority: 8
-    },
+
     {
       title: 'Fecha',
       compare: (a: historialpago, b: historialpago) => a.Fecha.localeCompare(b.Fecha),
