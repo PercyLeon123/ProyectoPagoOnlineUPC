@@ -4,6 +4,11 @@
         <p class="lead"></p>
         <p class="lead">Desde este formulario podras consultar el historial del pago de tus contribuciones  </p>
         <hr class="my-4">   
+
+        <div class="btn-group" role="group" aria-label="Exportar">
+            <button type="button" class="btn btn-secondary"   >Excel</button>
+            <button type="button" class="btn btn-secondary">PDF</button>                    
+          </div>
     </div>
   
 
@@ -17,7 +22,6 @@
             <li class="page-item"><a href="#" class="page-link">Next &nbsp; →</a></li>
         </ul>
     </div>	
-  
 
   <div class="container mt-5">
     <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
@@ -43,5 +47,7 @@
         </tbody>
     </nz-table>
 </div>
+  
+
 </div>
 
