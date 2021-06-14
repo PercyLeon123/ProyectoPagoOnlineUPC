@@ -1,3 +1,4 @@
+import { DatosUserComponent } from './pages/datos-user/datos-user.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PagoPendienteComponent } from './pages/pago-pendiente/pago-pendiente.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path:'PagoOnline', component:PagoOnlineComponent},
   {path:'Login', component:LoginComponent},
   {path:'Restablecercont', component:RestablecercontasenaComponent},
+  {path: 'DatosContribuyente', component:DatosUserComponent},
   {path:'historialpago', component:HistorialPagoComponent}
 ];
 
