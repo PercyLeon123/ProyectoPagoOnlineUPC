@@ -21,6 +21,7 @@ import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { LoginComponent } from './pages/login/login.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HistorialPagoComponent } from './pages/historial-pago/historial-pago.component';
+import { EstadoCuentaComponent } from './pages/estado-cuenta/estado-cuenta.component';
 
 registerLocaleData(en);
 
@@ -38,6 +39,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HistorialPagoComponent,
     LoginComponent,
     FooterComponent,
+    EstadoCuentaComponent,
   ],
   imports: [
     BrowserModule,

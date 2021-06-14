@@ -1,0 +1,38 @@
+<div class="container mt-5">
+    <div class="jumbotron">
+        <h4>Estado de cuenta actual del contribuyente</h4> 
+        <h4>Año 2021  </h4>      
+        <hr class="my-4">   
+
+        <div class="btn-group" role="group" aria-label="Exportar">
+            <button type="button" class="btn btn-secondary"   >Excel</button>
+            <button type="button" class="btn btn-secondary">PDF</button>                    
+          </div>
+    </div>
+  
+
+  <div class="container mt-5">
+    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+        <thead>
+            <tr>                
+                <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>              
+            </tr>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let data of nzTable.data">
+                <td>{{ data.Anio }}</td>
+                <td>{{ data.Vencimiento }}</td>
+                <td>{{ data.Fechaemision }}</td>                
+                <td>{{ data.Fact }}</td>
+                <td>{{ data.afrp1 }}</td>
+                <td>{{ data.desafrp1 }}</td>                         
+                <td>{{ data.ImporteDeuda }}</td>
+    
+            </tr>
+        </tbody>
+    </nz-table>
+</div>
+  
+
+</div>
+
