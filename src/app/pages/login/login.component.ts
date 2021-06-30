@@ -12,7 +12,11 @@ export class LoginComponent implements OnInit {
     password: ['',Validators.required],
   });
 
-  constructor(private fl: FormBuilder) { }
+  siteKey: string;
+
+  constructor(private fl: FormBuilder) {
+    this.siteKey = '6LdXzWUbAAAAAKnr8NLm7MIP26WZWD_08OmuLPnJ';
+   }
   onSubmit(){
     if(this.IngresoForm.valid){
       console.log(this.IngresoForm.value);

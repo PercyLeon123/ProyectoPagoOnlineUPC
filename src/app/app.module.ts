@@ -19,6 +19,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { LoginComponent } from './pages/login/login.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HistorialPagoComponent } from './pages/historial-pago/historial-pago.component';
 import { EstadoCuentaComponent } from './pages/estado-cuenta/estado-cuenta.component';
@@ -49,7 +50,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HttpClientModule,
     BrowserAnimationsModule,
     DemoNgZorroAntdModule,
-    FormsModule
+    FormsModule,
+    NgxCaptchaModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]
