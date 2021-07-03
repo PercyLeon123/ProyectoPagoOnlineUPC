@@ -13,41 +13,57 @@
   
 
     <div class="card card-body text-center">
-        <h6 class="font-weight-semibold">Filtro por año de recaudación </h6>												
-        <ul class="pagination pagination-separated align-self-center">
+        <h6 class="font-weight-semibold">Filtro por año de recaudación </h6>		
+        <input type ="text" #textid>
+        <input type ="text" #desdeid>
+        <input type ="text" #hastaid>
+        <button (click)="getHistorial(textid.value,desdeid.value,hastaid.value)">Obtiene estado </button>
+       <!--  <ul class="pagination pagination-separated align-self-center">
             <li class="page-item"><a href="#" class="page-link">← &nbsp; Prev</a></li>
             <li class="page-item"><a href="#" class="page-link">2018</a></li>
             <li class="page-item"><a href="#" class="page-link">2019</a></li>
             <li class="page-item active"><a href="#" class="page-link">2020</a></li>            
             <li class="page-item"><a href="#" class="page-link">Next &nbsp; →</a></li>
-        </ul>
+        </ul> -->
     </div>	
 
-  <div class="container mt-5">
-    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+    <div class='table-responsive'>
+        <table class='table'>
         <thead>
             <tr>                
-                <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>              
+                <th>Año</th> 
+                <th>Vencimiento</th> 
+                <th>Fecha de pago</th> 
+                <th>No Operacion</th> 
+                <th>Transaccion</th> 
+                <th>Fact</th> 
+                <th>afrp1</th> 
+                <th>Descripcion afrp1</th> 
+                <th>Fecha</th> 
+                <th>Importe Deuda</th> 
             </tr>
         </thead>
         <tbody> 
-            <tr *ngFor="let data of nzTable.data">
-                <td>{{ data.Anio }}</td>
-                <td>{{ data.Vencimiento }}</td>
-                <td>{{ data.Fechapago }}</td>
-                <td>{{ data.NroOperacion }}</td>
-                <td>{{ data.Transaccion }}</td>
-                <td>{{ data.Fact }}</td>
-                <td>{{ data.afrp1 }}</td>
-                <td>{{ data.desafrp1 }}</td>
-                <td>{{ data.Fecha }}</td>                
-                <td>{{ data.ImporteDeuda }}</td>
+        <tr *ngFor="let historia of historialpago;">  
+               
+                <td>{{ historia.Anio }}</td>
+                <td>{{ historia.Vencimiento }}</td>
+                <td>{{ historia.Fechapago }}</td>
+                <td>{{ historia.NroOperacion }}</td>
+                <td>{{ historia.Transaccion }}</td>
+                <td>{{ historia.Fact }}</td>
+                <td>{{ historia.afrp1 }}</td>
+                <td>{{ historia.desafrp1 }}</td>
+                <td>{{ historia.Fecha }}</td>                
+                <td>{{ historia.ImporteDeuda }}</td>
     
             </tr>
         </tbody>
-    </nz-table>
-</div>
-  
+        </table>
 
+  
 </div>
+</div>
+
+
 
