@@ -25,9 +25,11 @@ historialpagos = []
                private activeRoute: ActivatedRoute) { }
 
   getHistorial(idcontr:string,fdesde:string,fhasta:string){
-   this.historialpagoService.gethistorial(idcontr,fdesde,fhasta).subscribe((Res : any)=>{
+   this.historialpagoService.gethistorial(idcontr,fdesde,fhasta).subscribe((Res : any )=>{
 //   this.historialpago =Res;
-   this.historialpagos = Res;
+   this.historialpagos = Res.data;
+
+   console.log(fdesde);
    
    console.log(this.historialpagos);
 
