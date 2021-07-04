@@ -17,16 +17,10 @@
         <input type ="text" #textid>
         <input type ="text" #desdeid>
         <input type ="text" #hastaid>
-        <button (click)="getHistorial(textid.value,desdeid.value,hastaid.value)">Obtiene estado </button>
-       <!--  <ul class="pagination pagination-separated align-self-center">
-            <li class="page-item"><a href="#" class="page-link">← &nbsp; Prev</a></li>
-            <li class="page-item"><a href="#" class="page-link">2018</a></li>
-            <li class="page-item"><a href="#" class="page-link">2019</a></li>
-            <li class="page-item active"><a href="#" class="page-link">2020</a></li>            
-            <li class="page-item"><a href="#" class="page-link">Next &nbsp; →</a></li>
-        </ul> -->
+        <button (click)="getHistorial(textid.value,desdeid.value,hastaid.value)">Obtiene estado </button>     
     </div>	
 
+  <ng-container *ngIf="historialpagos">
     <div class='table-responsive'>
         <table class='table'>
         <thead>
@@ -38,31 +32,26 @@
                 <th>Transaccion</th> 
                 <th>Fact</th> 
                 <th>afrp1</th> 
-                <th>Descripcion afrp1</th> 
-                <th>Fecha</th> 
+                <th>Descripcion afrp1</th>                 
                 <th>Importe Deuda</th> 
             </tr>
         </thead>
         <tbody> 
-        <tr *ngFor="let historia of historialpago;">  
-               
-                <td>{{ historia.Anio }}</td>
-                <td>{{ historia.Vencimiento }}</td>
-                <td>{{ historia.Fechapago }}</td>
-                <td>{{ historia.NroOperacion }}</td>
-                <td>{{ historia.Transaccion }}</td>
-                <td>{{ historia.Fact }}</td>
-                <td>{{ historia.afrp1 }}</td>
-                <td>{{ historia.desafrp1 }}</td>
-                <td>{{ historia.Fecha }}</td>                
-                <td>{{ historia.ImporteDeuda }}</td>
-    
+        <tr *ngFor="let h of historialpagos.data">                       
+                <td>{{ h.nperiodo }}</td>
+                <td>{{ h.fecha_vcmto }}</td>
+                <td>{{ h.fecha_pago }}</td>
+                <td>{{ h.nro_ope }}</td>
+                <td>{{ h.nro_tran }}</td>
+                <td>{{ h.fact }}</td>
+                <td>{{ h.afrp1 }}</td>
+                <td>{{ h.desafrp1 }}</td>                
+                <td>{{ h.imp_deuda }}</td>    
             </tr>
         </tbody>
         </table>
-
-  
 </div>
+</ng-container>
 </div>
 
 

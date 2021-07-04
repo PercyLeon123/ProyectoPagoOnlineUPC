@@ -11,20 +11,24 @@ import { historialpago } from '../interfaces/historial-pagos';
 })
 export class HistorialpagoService {
 
+
+
   baseURL = environment.apiURL +"api/Contribuyente/EstadoCuentaHistorico";
 
-  constructor(private readonly http: HttpClient) { }
+  constructor(private  http: HttpClient) { }
 
 
 gethistorial(idcontribuyente :string ,  fdesde : string,  fhasta : string):Observable<historialpago>{
 
+  
   const url = this.baseURL;
   let params = new HttpParams()
   .set('idcontribuyente', idcontribuyente)
   .set('fdesde', fdesde)
   .set('fhasta', fhasta);
+ 
 
-  return this.http.get<historialpago>(url,{params});
+  return this.http.get<historialpago>("/api/Contribuyente/EstadoCuentaHistorico",{params});
   
 
 }

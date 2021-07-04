@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { historialpago } from '../../interfaces/historial-pagos';
+import { ActivatedRoute,Params } from '@angular/router';
 import { HistorialpagoService } from 'src/app/services/historialpago.service';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
-import { ActivatedRoute } from '@angular/router';
+
 import { textSpanIsEmpty } from 'typescript';
 
 
@@ -13,32 +13,39 @@ import { textSpanIsEmpty } from 'typescript';
 })
 export class HistorialPagoComponent implements OnInit {
 
-  historialpago :historialpago;
+
   notFound = false;
 
+historialpagos = []
+
    
-  constructor( private readonly historialpagoService :HistorialpagoService,  private readonly: ActivatedRoute) { }
+  constructor( private readonly historialpagoService :HistorialpagoService,  
+               private activeRoute: ActivatedRoute) { }
 
-
-  ngOnInit(): void {
-  }
-
-  public getHistorial(idcontr:string,fdesde:string,fhasta:string){
-
-         this.historialpagoService.gethistorial(idcontr,fdesde,fhasta).subscribe((Res : historialpago)=>{
-        this.historialpago =Res;
-
-    }, (err:any)=>{
-      console.error(err);
-      this.notFound = true;
-    }
-    ) ;           
-       
-        console.log(this.historialpago);
-      }
-
-
+  getHistorial(idcontr:string,fdesde:string,fhasta:string){
+   this.historialpagoService.gethistorial(idcontr,fdesde,fhasta).subscribe((Res : any)=>{
+//   this.historialpago =Res;
+   this.historialpagos = Res;
+   console.log(this.historialpagos);
 
 }
+)   
+}
+
+  ngOnInit(): void {
+    this.activeRoute.params.subscribe((params: Params) => {
+      if(params.idcontr) {
+        this.getHistorial(params.idcontr,params.fdesde,params.fhasta);
+        
+      }
+    })
+    
+  }
+
+}
+
+
+
+
 
 
