@@ -19,39 +19,54 @@
         <input type ="text" #hastaid>
         <button (click)="getHistorial(textid.value,desdeid.value,hastaid.value)">Obtiene estado </button>     
     </div>	
+</div>
 
-  <ng-container *ngIf="historialpagos">
-    <div class='table-responsive'>
-        <table class='table'>
+<div class="container mt-5">
+    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
         <thead>
-            <tr>                
-                <th>Año</th> 
-                <th>Vencimiento</th> 
-                <th>Fecha de pago</th> 
-                <th>No Operacion</th> 
-                <th>Transaccion</th> 
-                <th>Fact</th> 
-                <th>afrp1</th> 
-                <th>Descripcion afrp1</th>                 
-                <th>Importe Deuda</th> 
+            <tr>
+                <th nzCustomFilter>
+                    Factura
+                    <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                        <i nz-icon nzType="search"></i>
+                    </nz-filter-trigger>
+                </th>
+
+                <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>
+               
             </tr>
         </thead>
-        <tbody> 
-        <tr *ngFor="let h of historialpagos.data">                       
-                <td>{{ h.nperiodo }}</td>
-                <td>{{ h.fecha_vcmto }}</td>
-                <td>{{ h.fecha_pago }}</td>
-                <td>{{ h.nro_ope }}</td>
-                <td>{{ h.nro_tran }}</td>
-                <td>{{ h.fact }}</td>
-                <td>{{ h.afrp1 }}</td>
-                <td>{{ h.desafrp1 }}</td>                
-                <td>{{ h.imp_deuda }}</td>    
+        <tbody>
+            <tr *ngFor="let data of historialpagos.data">
+
+                <td>{{ data.nperiodo }}</td>
+                <td>{{ data.fecha_vcmto }}</td>
+                <td>{{ data.fecha_pago }}</td>
+                <td>{{ data.Nro_ope }}</td>
+                <td>{{ data.nro_tran }}</td>
+                <td>{{ data.Fact }}</td>
+                <td>{{ data.afpr1 }}</td>                
+                <td>{{ data.des_afr1 }}</td>
+                <td>{{ data.code }}</td>
+                 <td>{{ data.fracciona }}</td>
+                <td>{{ data.des_fracciona }}</td>               
+              
+                <td>{{ data.imp_deuda }}</td>
+                
             </tr>
         </tbody>
-        </table>
-</div>
-</ng-container>
+    </nz-table>
+    <nz-dropdown-menu #menu="nzDropdownMenu">
+        <div class="ant-table-filter-dropdown">
+            <div class="search-box">
+                <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+                <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">
+                Search
+                </button>
+                <button nz-button nzSize="small" (click)="reset()">Reset</button>
+            </div>
+        </div>
+    </nz-dropdown-menu>
 </div>
 
 
