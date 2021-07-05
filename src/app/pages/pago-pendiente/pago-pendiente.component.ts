@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadoCuenta } from '../../interfaces/estado-cuenta';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
+import { ActivatedRoute,Params } from '@angular/router';
+import { PagoPendienteService } from 'src/app/services/pago-pendiente.service';
+
 
 @Component({
   selector: 'app-pago-pendiente',
@@ -9,93 +12,89 @@ import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } f
 })
 export class PagoPendienteComponent implements OnInit {
 
-  constructor() { }
+
+  notFound = false;
+
+pagospendientes = []
+
+   
+  constructor( private readonly pagopendienteservice :PagoPendienteService,  
+               private activeRoute: ActivatedRoute) { }
+
+geteectapendiente(idcontr:string){
+  
+   this.pagopendienteservice.geteectapendiente(idcontr).subscribe((Res : any )=>{
+
+   this.pagospendientes = Res.data;
+   
+   console.log(this.pagospendientes);
+
+}
+)   
+}
+
 
   ngOnInit(): void {
   }
   searchValue = '';
   visible = false;
 
-  listOfColumn = [
+  listOfColumn =  [
+    {
+      title: 'Periodo',
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.nperiodo.localeCompare(b.nperiodo),
+      priority: 2
+    },
+
+    {
+      title: 'Fecha Vcmto',
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.fecha_vcmto.localeCompare(b.fecha_vcmto),
+      priority: 2
+    },
+
+    
+    {
+      title: 'Fact',
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Fact.localeCompare(b.Fact),
+      priority: 2
+    },
+    
     {
       title: 'Afpr',
-      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Afpr.localeCompare(b.Afpr),
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.afpr1.localeCompare(b.afpr1),
+      priority: 2
+    },
+    {
+      title: 'Desafr1',
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.des_afr1.localeCompare(b.des_afr1),
       priority: 2
     },
     {
       title: 'Code',
-      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Code.localeCompare(b.Code),
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.code.localeCompare(b.code),
       priority: 1
     },
     {
       title: 'Fraciona',
-      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Fraciona.localeCompare(b.Fraciona),
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.fracciona.localeCompare(b.fracciona),
       priority: 2
     },
     {
       title: 'Desfraccion',
-      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Desfraccion.localeCompare(b.Desfraccion),
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.des_fracciona.localeCompare(b.des_fracciona),
       priority: 1
     },
-    {
-      title: 'Desafr1',
-      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Desafr1.localeCompare(b.Desafr1),
-      priority: 2
-    },
+  
     {
       title: 'Importe Deuda',
-      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.ImporteDeuda.localeCompare(b.ImporteDeuda),
-      priority: 1
-    },
-    {
-      title: 'Fecha',
-      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Fecha.localeCompare(b.Fecha),
+      compare: (a: EstadoCuenta, b: EstadoCuenta) => a.imp_deuda.localeCompare(b.imp_deuda),
       priority: 1
     }
+    
   ];
 
-  listOfData: EstadoCuenta[] = [
-    {
-      Factura:'001',
-      Afpr:'string',
-      Code:'1',
-      Fraciona:'string',
-      Desfraccion:'string',
-      Desafr1:'string',
-      ImporteDeuda:'string',
-      Fecha:'10-04-1997',
-    },
-    {
-      Factura:'002',
-      Afpr:'string',
-      Code:'2',
-      Fraciona:'string',
-      Desfraccion:'string',
-      Desafr1:'string',
-      ImporteDeuda:'string',
-      Fecha:'11-04-1997',
-    },
-    {
-      Factura:'003',
-      Afpr:'string',
-      Code:'3',
-      Fraciona:'string',
-      Desfraccion:'string',
-      Desafr1:'string',
-      ImporteDeuda:'string',
-      Fecha:'12-04-1997',
-    },
-    {
-      Factura:'004',
-      Afpr:'string',
-      Code:'4',
-      Fraciona:'string',
-      Desfraccion:'string',
-      Desafr1:'string',
-      ImporteDeuda:'string',
-      Fecha:'15-04-1997',
-    },
-  ];
+  
+  listOfData: EstadoCuenta[] =  this.pagospendientes;
 
   listOfDisplayData = [...this.listOfData];
 
@@ -106,6 +105,6 @@ export class PagoPendienteComponent implements OnInit {
 
   search(): void {
     this.visible = false;
-    this.listOfDisplayData = this.listOfData.filter((item: EstadoCuenta) => item.Factura.indexOf(this.searchValue) !== -1);
+    this.listOfDisplayData = this.listOfData.filter((item: EstadoCuenta) => item.nperiodo.indexOf(this.searchValue) !== -1);
   }
 }
