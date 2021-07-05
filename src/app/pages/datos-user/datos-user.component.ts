@@ -8,26 +8,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './datos-user.component.html',
   styleUrls: ['./datos-user.component.css']
 })
+
 export class DatosUserComponent implements OnInit {
 
   contribuyente = [];
 
-  constructor(private readonly datosuserservice: DatosuserService,
-              private activeRoute: ActivatedRoute ) { }
+  constructor(private readonly datosuserservice: DatosuserService) { }
 
-  consulta(retorno: string) {
-    this.datosuserservice.consulta().subscribe((rest: any)=> {
-      this.contribuyente = rest.data.filter((item: { retorno: string}) => item.retorno == retorno);
+    datosCont() {
+    this.datosuserservice.datosCont().subscribe((rest: any)=> {
       console.log(rest.data);
+      this.contribuyente = rest.data;
     })
   }
 
   ngOnInit(): void {
-    this.activeRoute.params.subscribe((params: Params) => {
-      if(params.retorno) {
-        this.consulta(params.retorno);
-      }
-    })
+    this.datosCont();
   }
 
 }

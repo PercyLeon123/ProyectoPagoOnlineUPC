@@ -8,7 +8,8 @@ export class DatosuserService {
 
   constructor(private readonly http: HttpClient) { }
 
-  consulta() {
-    return this.http.get('http://localhost:64059/api/Contribuyente/consulta');
+
+  datosCont() {
+    return this.http.get('http://localhost:64059/api/Contribuyente/datosCont');
   }
 }
