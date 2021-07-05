@@ -19,10 +19,10 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { DemoNgZorroAntdModule } from './ng-zorro-antd.module';
 import { LoginComponent } from './pages/login/login.component';
-import { NgxCaptchaModule } from 'ngx-captcha';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HistorialPagoComponent } from './pages/historial-pago/historial-pago.component';
 import { EstadoCuentaComponent } from './pages/estado-cuenta/estado-cuenta.component';
+import { RecaptchaFormsModule, RecaptchaModule } from 'ng-recaptcha';
 
 registerLocaleData(en);
 
@@ -47,11 +47,13 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     DemoNgZorroAntdModule,
     FormsModule,
-    NgxCaptchaModule
+
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }, { provide: NZ_ICONS, useValue: icons }],
   bootstrap: [AppComponent]

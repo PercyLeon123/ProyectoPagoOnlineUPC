@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RecaptchaErrorParameters } from 'ng-recaptcha';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +8,16 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  public resolved(captchaResponse: string): void {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
+  }
+
+  public onError(errorDetails: RecaptchaErrorParameters): void{
+    console.log(`reCAPTCHA error encountered; details:`, errorDetails);
+  };
+
+
   IngresoForm=this.fl.group({
     user: ['',Validators.required],
     password: ['',Validators.required],
@@ -15,7 +26,6 @@ export class LoginComponent implements OnInit {
   siteKey: string;
 
   constructor(private fl: FormBuilder) {
-    this.siteKey = '6LdXzWUbAAAAAKnr8NLm7MIP26WZWD_08OmuLPnJ';
    }
   onSubmit(){
     if(this.IngresoForm.valid){

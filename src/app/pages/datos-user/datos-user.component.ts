@@ -13,17 +13,22 @@ export class DatosUserComponent implements OnInit {
 
   contribuyente = [];
 
-  constructor(private readonly datosuserservice: DatosuserService) { }
+  constructor(private readonly datosuserservice: DatosuserService, private  activeRoute: ActivatedRoute ) { }
 
-    datosCont() {
+    datosContxCod(codigo: string) {
     this.datosuserservice.datosCont().subscribe((rest: any)=> {
-      console.log(rest.data);
-      this.contribuyente = rest.data;
+      console.log(this.contribuyente);
+      this.contribuyente = rest.data.filter((item: {codigo: string}) => item.codigo == codigo);
     })
   }
 
   ngOnInit(): void {
-    this.datosCont();
+    this.activeRoute.params.subscribe((params: Params) =>{
+      if(params.codigo) {
+        this.datosContxCod(params.codigo);
+      }
+    })
+
   }
 
 }

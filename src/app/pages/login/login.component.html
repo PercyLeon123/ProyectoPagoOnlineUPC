@@ -15,8 +15,12 @@
 					<input type="password" class="form-control" placeholder="Contraseña">
 						<div class="form-control-feedback"><i class="icon-lock2 text-muted"></i></div>
 				</div>
-          <ngx-recaptcha2 #captchaElem [siteKey]="siteKey">
-          </ngx-recaptcha2>
+            <re-captcha
+              (resolved)="resolved($event)"
+              (error)="onError($event)"
+              errorMode="handled"
+              siteKey="6LdXzWUbAAAAAKnr8NLm7MIP26WZWD_08OmuLPnJ"
+            ></re-captcha>
 				<div class="form-group">
 					<button (click)="onSubmit()" type="submit" class="btn btn-primary btn-block">Ingresar<i class="icon-circle-right2 ml-2"></i></button>
 				</div>

@@ -2,99 +2,98 @@
   <h3>Datos del Contribuyente</h3>
   <div class="row">
     <div class="main-login main-center" style="padding-top: 0px;   padding-bottom: 150px;">
-         <div class="container">
+         <div class="form-group">
            <label for="username" class="cols-sm-2 control-label">Código de Usuario</label>
            <div class="cols-sm-10">
               <div class="input-group">
-                <span *ngIf="contribuyente[0]!= null" class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i>
-                <br> {{ contribuyente[0].codigocont}}
+                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i>
+									<input type="text" class="form-control" id="codigocont"  value="{{ contribuyente[0].codigocont}}" readonly="readonly"/>
               </span>
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="first_name" class="cols-sm-2 control-label">Apellidos y Nombres</label>
+            <label class="cols-sm-2 control-label">Numero de Documento</label>
             <div class="cols-sm-10">
               <div class="input-group">
-                <span *ngIf="contribuyente[0] != null" class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
-                <br> {{ contribuyente[0].nrodoc}}
+                <span  class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
+                  <input type="text" class="form-control" id="nrodoc"  value="{{ contribuyente[0].nrodoc}}" readonly="readonly"/>
               </span>
               </div>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="first_name" class="cols-sm-2 control-label">Apellidos y Nombres</label>
-            <div class="cols-sm-10">
-              <div class="input-group">
-                <span *ngIf="contribuyente[0] != null" class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
-                <br> {{ contribuyente[0].apenom}}
-              </span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="first_name" class="cols-sm-2 control-label">Dirección</label>
+            <label class="cols-sm-2 control-label">Apellidos y Nombres</label>
             <div class="cols-sm-10">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
-                <br> {{ contribuyente[0].dir_domicilio}}
-              </span>
+                  <input type="text" class="form-control" id="apenom"  value="{{ contribuyente[0].apenom}}" readonly="readonly"/>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="cols-sm-2 control-label">Dirección</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
+                  <input type="text" class="form-control" id="dir_domicilio"  value="{{ contribuyente[0].dir_domicilio}}" readonly="readonly"/>              </span>
               </div>
             </div>
           </div>
 
         <div class="form-group">
-          <label for="phone" class="cols-sm-2 control-label">Telefono 1 </label>
+          <label  class="cols-sm-2 control-label">Telefono 1 </label>
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
-                <br> {{ contribuyente[0].telefono1}}
+                <input type="text" class="form-control" id="telefono1"  value="{{ contribuyente[0].telefono1}}" readonly="readonly"/></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="cols-sm-2 control-label">Telefono 2 </label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
+                <input type="text" class="form-control" id="telefono2"  value="{{ contribuyente[0].telefono2}}" readonly="readonly"/>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label  class="cols-sm-2 control-label">Telefono 3 </label>
+          <div class="cols-sm-10">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
+                <input type="text" class="form-control" id="telefono3"  value="{{ contribuyente[0].telefono3}}" readonly="readonly"/>
             </span>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="phone2" class="cols-sm-2 control-label">Telefono 2 </label>
+          <label class="cols-sm-2 control-label">Telefono 4 </label>
           <div class="cols-sm-10">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
-              <br> {{ contribuyente[0].telefono2}}
+                <input type="text" class="form-control" id="telefono1"  value="{{ contribuyente[0].telefono4}}" readonly="readonly"/>
             </span>
             </div>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="phone2" class="cols-sm-2 control-label">Telefono 3 </label>
-          <div class="cols-sm-10">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
-               <br> {{ contribuyente[0].telefono3}}
-            </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="phone2" class="cols-sm-2 control-label">Telefono 4 </label>
-          <div class="cols-sm-10">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
-                              <br> {{ contribuyente[0].telefono4}}
-            </span>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="phone2" class="cols-sm-2 control-label">Correo Electronico</label>
+          <label  class="cols-sm-2 control-label">Correo Electronico</label>
             <div class="cols-sm-10">
               <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>                <br> {{ contribuyente[0].correo}}
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i>
+                  <input type="text" class="form-control" id="correo"  value="{{ contribuyente[0].correo}}" readonly="readonly"/>
               </span>
               </div>
             </div>
