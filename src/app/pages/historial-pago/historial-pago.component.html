@@ -1,5 +1,6 @@
 <div class="container mt-5">
-    <div class="jumbotron">
+
+     <div class="jumbotron">
         <h4>Estimado contribuyente :</h4> 
         <p class="lead"></p>
         <p class="lead">Desde este formulario podras consultar el historial del pago de tus contribuciones  </p>
@@ -9,39 +10,113 @@
             <button type="button" class="btn btn-secondary"   >Excel</button>
             <button type="button" class="btn btn-secondary">PDF</button>                    
           </div>
-    </div>
+    </div> 
   
+        
+<!--     <div class="container-fluid px-1 px-sm-4 py-5 mx-auto">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-10 col-lg-9 col-xl-8">
+                <div class="card border-0">
+                    <div class="card-header bg-white">
+                        <h4 class="mb-1">Buscar estado de cuenta</h4> 
+                        
+                    </div>
+                    <div class="card-body px-1 px-md-25">
+                                                <div class="card mb-4">
+                            <div class="card-header">
+                                <h6><span class="fa fa-calendar mr-3"></span>Fecha de pago</h6>
+                            </div>
+                            <div class="card-body">
+                                  <div class="row px-4">
 
-    <div class="card card-body text-center">
-        <h6 class="font-weight-semibold">Filtro por año de recaudación </h6>		
-        <input type ="text" #textid>
-        <input type ="text" #desdeid>
-        <input type ="text" #hastaid>
-        <button (click)="getHistorial(textid.value,desdeid.value,hastaid.value)">Obtiene estado </button>     
-    </div>	
-</div>
+                                    <div class="col-6 col-lg-0 text-center px-0 arrival active">
+                                        <div class="block py-1">Código de contribuyente</div>
+                                    </div>
+                                    <div class="col-6 col-lg-17 text-center px-0 arrival active">
+                                        <div class="block py-1">Desde</div>
+                                    </div>
 
-<div class="container mt-5">
+                                    <div class="col-6 col-lg-9 text-center px-0 arrival active">
+                                        <div class="block py-1">Hasta</div>
+                                    </div>                                                                     
+                                </div>
+                                <div class="row px-4 mt-6">
+                                    <div class="col-md-5 pl-0 pr-0 pr-md-2 mb-2"> <input type="text" name="idcontribuyente"  required  #textid> </div>
+                                    <div class="col-md-5 pl-0 pr-0 pr-md-2 mb-2"> <input type="date" name="desde" data-date-format="YYYYMMDD" value="2019-12-21" required  #desdeid> </div>
+                                    <div class="col-md-5 pl-0 pr-0 pr-md-2 mb-2"> <input type="date" name="hasta" ata-date-format="YYYYMMDD" value="2019-12-21" required #hastaid> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">                   
+                                <button (click)="getHistorial(textid.value,desdeid.value,hastaid.value)" class="btn btn-success ml-auto"><span class="fa fa-filter">
+
+                                </span> Obtener Estado de cuenta</button> 
+                                </div>
+                        </div>
+                       
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="container-fluid px-1 px-sm-4 py-5 mx-auto">
+    
+
+        <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 5px;">
+            
+        </div>
+
+        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+            <label class="col-md-12 col-sm-3 col-xs-3 text-left">Código de contribuyente: </label>
+
+            <div class='col-md-6 col-sm-4 col-xs-4'>
+                <input type='text' class="form-control"  name="idcontribuyente"  required  #textid />
+            </div>
+        </div>
+        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+            <label class="col-md-6 col-sm-3 col-xs-3 text-left">Fecha Desde: </label>
+
+            <div class='col-md-6 col-sm-4 col-xs-4'>
+                <input type='date' class="form-control" data-date-format="YYYYMMDD" value="2019-12-21" required  #desdeid> 
+            </div>
+        </div>
+
+        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+            <label class="col-md-12 col-sm-3 col-xs-3 text-left">Fecha Hasta: </label>
+
+            <div class='col-md-6 col-sm-4 col-xs-4'>
+                <input type='date' class="form-control" data-date-format="YYYYMMDD" value="2019-12-21" required  #hastaid> 
+            </div>
+        </div>
+
+      
+        <div class="form-group">                   
+            <button (click)="getHistorial(textid.value,desdeid.value,hastaid.value)" class="btn btn-success ml-auto"><span class="fa fa-filter">
+
+            </span> Obtener Estado de cuenta</button> 
+            </div>
+    
+    </div>
     <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
         <thead>
             <tr>
-                <th nzCustomFilter>
+           <!--      <th nzCustomFilter>
                     Factura
                     <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
                         <i nz-icon nzType="search"></i>
                     </nz-filter-trigger>
-                </th>
+                </th> -->
 
                 <th *ngFor="let column of listOfColumn" [nzSortFn]="column.compare" [nzSortPriority]="column.priority">{{ column.title }}</th>
                
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let data of historialpagos.data">
+            <tr *ngFor="let data of historialpagos">
 
                 <td>{{ data.nperiodo }}</td>
-                <td>{{ data.fecha_vcmto }}</td>
-                <td>{{ data.fecha_pago }}</td>
+                <td>{{ data.fecha_vcmto | date : 'dd-MM-yyyy' }}</td>
+                <td>{{ data.fecha_pago | date : 'dd-MM-yyyy' }}</td>
                 <td>{{ data.Nro_ope }}</td>
                 <td>{{ data.nro_tran }}</td>
                 <td>{{ data.Fact }}</td>
@@ -49,8 +124,7 @@
                 <td>{{ data.des_afr1 }}</td>
                 <td>{{ data.code }}</td>
                  <td>{{ data.fracciona }}</td>
-                <td>{{ data.des_fracciona }}</td>               
-              
+                <td>{{ data.des_fracciona }}</td>      
                 <td>{{ data.imp_deuda }}</td>
                 
             </tr>
