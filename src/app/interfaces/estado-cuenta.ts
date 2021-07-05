@@ -1,10 +1,13 @@
 export interface EstadoCuenta {
-  Factura:string;
-  Afpr:string;
-  Code:string;
-  Fraciona:string;
-  Desfraccion:string;
-  Desafr1:string;
-  ImporteDeuda:string;
-  Fecha:string;
+  nperiodo:string;
+  fecha_vcmto:string;  
+  Nro_ope:string;
+  nro_tran:string;  
+  Fact:string;
+  afpr1:string;
+  des_afr1:string;
+  imp_deuda:string;  
+  code:string;
+  fracciona:string;
+  des_fracciona : string;
 }
