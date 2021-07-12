@@ -1,31 +1,31 @@
 <div class="container my-5">
     <div class="jumbotron">
-        <h1 class="display-4">Hola, Percy Leon!</h1>
+        <h1 class="display-4">Hola, {{user}}</h1>
         <p class="lead">En este formulario podras observar su pagos pendiente, y al escoger uno podras realizar el pago en linea</p>
         <hr class="my-4">
-        <p>Para realizar ek pago en linea deberas escoger un registro</p>
+        <p>Para realizar el pago en linea deberas escoger un registro</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Mas informacion</a>
     </div>
 </div>
 
 <div class="container-fluid px-1 px-sm-4 py-5 mx-auto">
-    
+
 
     <div class="col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 5px;">
-        
+
     </div>
 
     <div class="form-group col-md-12 col-sm-12 col-xs-12">
         <label class="col-md-12 col-sm-3 col-xs-3 text-left">Código de contribuyente: </label>
 
         <div class='col-md-6 col-sm-4 col-xs-4'>
-            <input type='text' class="form-control"  name="idcontribuyente"  required  #textid />
+            <input type='text' class="form-control"  id="codigocont"  value="{{ codigocont}}" readonly="readonly" required  #textid />
         </div>
-    </div>  
-    <div class="form-group">                   
+    </div>
+    <div class="form-group">
         <button (click)="geteectapendiente(textid.value)" class="btn btn-success ml-auto"><span class="fa fa-filter">
 
-        </span> Obtener Estado de cuenta</button> 
+        </span> Obtener Estado de cuenta</button>
         </div>
 
 </div>
@@ -50,13 +50,13 @@
         <tbody>
             <tr *ngFor="let data of pagospendientes">
                 <td>{{ data.nperiodo }}</td>
-                <td>{{ data.fecha_vcmto | date : 'dd-MM-yyyy' }}</td>                                
+                <td>{{ data.fecha_vcmto | date : 'dd-MM-yyyy' }}</td>
                 <td>{{ data.Fact }}</td>
-                <td>{{ data.afpr1 }}</td>                
+                <td>{{ data.afpr1 }}</td>
                 <td>{{ data.des_afr1 }}</td>
                 <td>{{ data.code }}</td>
                  <td>{{ data.fracciona }}</td>
-                <td>{{ data.des_fracciona }}</td>      
+                <td>{{ data.des_fracciona }}</td>
                 <td>{{ data.imp_deuda }}</td>
                 <td><a href="">Pagar</a></td>
             </tr>

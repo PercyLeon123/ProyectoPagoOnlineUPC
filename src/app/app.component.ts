@@ -13,4 +13,6 @@ export class AppComponent {
   title = 'proyectopagoonline';
   resolved(captchaResponse: string) {
     console.log(`Resolved captcha with response: ${captchaResponse}`);}
+  token = sessionStorage.getItem('token');
+  user = sessionStorage.getItem('user');
 }

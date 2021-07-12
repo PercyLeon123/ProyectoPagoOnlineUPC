@@ -15,13 +15,13 @@ import { textSpanIsEmpty } from 'typescript';
 })
 export class HistorialPagoComponent implements OnInit {
 
-
+  codigocont = sessionStorage.getItem('codigo');
   notFound = false;
 
 historialpagos = []
 
-   
-  constructor( private readonly historialpagoService :HistorialpagoService,  
+
+  constructor( private readonly historialpagoService :HistorialpagoService,
                private activeRoute: ActivatedRoute) { }
 
   getHistorial(idcontr:string,fdesde:string,fhasta:string){
@@ -30,21 +30,21 @@ historialpagos = []
    this.historialpagos = Res.data;
 
    console.log(fdesde);
-   
+
    console.log(this.historialpagos);
 
 }
-)   
+)
 }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe((params: Params) => {
       if(params.idcontr) {
         this.getHistorial(params.idcontr,params.fdesde,params.fhasta);
-        
+
       }
     })
-    
+
   }
 
   searchValue = '';
@@ -63,7 +63,7 @@ historialpagos = []
       priority: 2
     },
 
-    
+
     {
       title: 'Fecha de Pago',
       compare: (a: historialpago, b: historialpago) => a.fecha_pago.localeCompare(b.fecha_pago),
@@ -87,7 +87,7 @@ historialpagos = []
       compare: (a: historialpago, b: historialpago) => a.Fact.localeCompare(b.Fact),
       priority: 2
     },
-    
+
     {
       title: 'Afpr',
       compare: (a: historialpago, b: historialpago) => a.afpr1.localeCompare(b.afpr1),
@@ -113,13 +113,13 @@ historialpagos = []
       compare: (a: historialpago, b: historialpago) => a.des_fracciona.localeCompare(b.des_fracciona),
       priority: 1
     },
-  
+
     {
       title: 'Importe Deuda',
       compare: (a: historialpago, b: historialpago) => a.imp_deuda.localeCompare(b.imp_deuda),
       priority: 1
     }
-    
+
   ];
   listOfData: historialpago[] =  this.historialpagos;
   listOfDisplayData = [...this.listOfData];

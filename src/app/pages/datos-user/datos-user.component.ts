@@ -1,5 +1,3 @@
-import { ActivatedRoute,Params } from '@angular/router';
-import { DatosuserService } from './../../services/datosuser.service';
 import { Component, OnInit } from '@angular/core';
 
 
@@ -11,24 +9,22 @@ import { Component, OnInit } from '@angular/core';
 
 export class DatosUserComponent implements OnInit {
 
-  contribuyente = [];
+  user = sessionStorage.getItem('user');
+  codigocont = sessionStorage.getItem('codigo');
+  nrodoc = sessionStorage.getItem('nrod');
+  dirdomicilio = sessionStorage.getItem('domicilio');
+  telefono1 = sessionStorage.getItem('telefono1');
+  telefono2 = sessionStorage.getItem('telefono2');
+  telefono3 = sessionStorage.getItem('telefono3');
+  telefono4 = sessionStorage.getItem('telefono4');
+  correo = sessionStorage.getItem('correo');
 
-  constructor(private readonly datosuserservice: DatosuserService, private  activeRoute: ActivatedRoute ) { }
 
-    datosContxCod(codigo: string) {
-    this.datosuserservice.datosCont().subscribe((rest: any)=> {
-      console.log(this.contribuyente);
-      this.contribuyente = rest.data.filter((item: {codigo: string}) => item.codigo == codigo);
-    })
-  }
+  constructor() { }
+
 
   ngOnInit(): void {
-    this.activeRoute.params.subscribe((params: Params) =>{
-      if(params.codigo) {
-        this.datosContxCod(params.codigo);
-      }
-    })
-
   }
 
 }
+

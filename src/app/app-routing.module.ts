@@ -1,3 +1,4 @@
+import { LogoutComponent } from './pages/login/logout.component';
 import { DatosUserComponent } from './pages/datos-user/datos-user.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -9,10 +10,11 @@ import { HistorialPagoComponent } from './pages/historial-pago/historial-pago.co
 import { EstadoCuentaComponent } from './pages/estado-cuenta/estado-cuenta.component';
 
 const routes: Routes = [
-  {path:'', component:PagoPendienteComponent},
+  {path:'', component:LoginComponent},
   {path:'PagoPendiente', component:PagoPendienteComponent},
   {path:'PagoOnline', component:PagoOnlineComponent},
   {path:'Login', component:LoginComponent},
+  {path: 'Logout', component:LogoutComponent},
   {path:'Restablecercont', component:RestablecercontasenaComponent},
   {path: 'DatosContribuyente', component:DatosUserComponent},
   {path:'historialpago', component:HistorialPagoComponent},

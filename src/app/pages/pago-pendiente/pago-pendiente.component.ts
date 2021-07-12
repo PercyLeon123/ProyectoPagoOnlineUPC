@@ -12,25 +12,26 @@ import { PagoPendienteService } from 'src/app/services/pago-pendiente.service';
 })
 export class PagoPendienteComponent implements OnInit {
 
-
+  user = sessionStorage.getItem('user');
+  codigocont = sessionStorage.getItem('codigo');
   notFound = false;
 
 pagospendientes = []
 
-   
-  constructor( private readonly pagopendienteservice :PagoPendienteService,  
+
+  constructor( private readonly pagopendienteservice :PagoPendienteService,
                private activeRoute: ActivatedRoute) { }
 
 geteectapendiente(idcontr:string){
-  
+
    this.pagopendienteservice.geteectapendiente(idcontr).subscribe((Res : any )=>{
 
    this.pagospendientes = Res.data;
-   
+
    console.log(this.pagospendientes);
 
 }
-)   
+)
 }
 
 
@@ -52,13 +53,13 @@ geteectapendiente(idcontr:string){
       priority: 2
     },
 
-    
+
     {
       title: 'Fact',
       compare: (a: EstadoCuenta, b: EstadoCuenta) => a.Fact.localeCompare(b.Fact),
       priority: 2
     },
-    
+
     {
       title: 'Afpr',
       compare: (a: EstadoCuenta, b: EstadoCuenta) => a.afpr1.localeCompare(b.afpr1),
@@ -84,16 +85,16 @@ geteectapendiente(idcontr:string){
       compare: (a: EstadoCuenta, b: EstadoCuenta) => a.des_fracciona.localeCompare(b.des_fracciona),
       priority: 1
     },
-  
+
     {
       title: 'Importe Deuda',
       compare: (a: EstadoCuenta, b: EstadoCuenta) => a.imp_deuda.localeCompare(b.imp_deuda),
       priority: 1
     }
-    
+
   ];
 
-  
+
   listOfData: EstadoCuenta[] =  this.pagospendientes;
 
   listOfDisplayData = [...this.listOfData];

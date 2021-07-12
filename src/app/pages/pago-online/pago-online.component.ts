@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagoOnlineComponent implements OnInit {
 
+  user = sessionStorage.getItem('user');
+
   constructor() { }
 
   ngOnInit(): void {
