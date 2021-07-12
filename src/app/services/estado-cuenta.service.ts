@@ -20,7 +20,7 @@ export class EstadoCuentaService {
     .set('idcontribuyente', idcontribuyente);
   
   
-    return this.http.get<EstadoCuenta>("/api/Contribuyente/EstadoCuentaPendiente",{params});
+    return this.http.get<EstadoCuenta>("https://localhost:44309/api/Contribuyente/EstadoCuentaPendiente",{params});
     
   
   }

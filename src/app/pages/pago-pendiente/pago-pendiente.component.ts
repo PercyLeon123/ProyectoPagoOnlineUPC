@@ -23,8 +23,10 @@ pagospendientes = []
                private activeRoute: ActivatedRoute) { }
 
 geteectapendiente(idcontr:string){
+  const token = sessionStorage.getItem('token');
+  const header = { Authorization: 'Bearer ' + token };
 
-   this.pagopendienteservice.geteectapendiente(idcontr).subscribe((Res : any )=>{
+   this.pagopendienteservice.geteectapendiente(idcontr,header).subscribe((Res : any )=>{
 
    this.pagospendientes = Res.data;
 

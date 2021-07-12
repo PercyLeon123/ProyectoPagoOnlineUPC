@@ -25,11 +25,18 @@ historialpagos = []
                private activeRoute: ActivatedRoute) { }
 
   getHistorial(idcontr:string,fdesde:string,fhasta:string){
-   this.historialpagoService.gethistorial(idcontr,fdesde,fhasta).subscribe((Res : any )=>{
+
+    const token = sessionStorage.getItem('token');
+    const header = { Authorization: 'Bearer ' + token };
+
+
+
+   this.historialpagoService.gethistorial(idcontr,fdesde,fhasta,header).subscribe((Res : any )=>{
 //   this.historialpago =Res;
    this.historialpagos = Res.data;
 
    console.log(fdesde);
+   console.log(header);
 
    console.log(this.historialpagos);
 

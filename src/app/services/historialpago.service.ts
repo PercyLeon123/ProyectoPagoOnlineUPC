@@ -18,7 +18,7 @@ export class HistorialpagoService {
   constructor(private  http: HttpClient) { }
 
 
-gethistorial(idcontribuyente :string ,  fdesde : string,  fhasta : string):Observable<historialpago>{
+gethistorial(idcontribuyente :string ,  fdesde : string,  fhasta : string,headers ):Observable<historialpago>{
 
   
   const url = this.baseURL;
@@ -28,7 +28,7 @@ gethistorial(idcontribuyente :string ,  fdesde : string,  fhasta : string):Obser
   .set('fhasta', fhasta);
  
 
-  return this.http.get<historialpago>("/api/Contribuyente/EstadoCuentaHistorico",{params});
+  return this.http.get<historialpago>("https://localhost:44309/api/Contribuyente/EstadoCuentaHistorico",{params,headers});
   
 
 }

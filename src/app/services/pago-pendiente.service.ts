@@ -12,13 +12,13 @@ export class PagoPendienteService {
 
   constructor(private  http: HttpClient) { }
 
-  geteectapendiente(idcontribuyente :string ):Observable<EstadoCuenta>{
+  geteectapendiente(idcontribuyente :string,headers ):Observable<EstadoCuenta>{
      
     let params = new HttpParams()
     .set('idcontribuyente', idcontribuyente);
   
   
-    return this.http.get<EstadoCuenta>("/api/Contribuyente/EstadoCuentaPendiente",{params});
+    return this.http.get<EstadoCuenta>("https://localhost:44309/api/Contribuyente/EstadoCuentaPendiente",{params,headers});
     
   
   }
