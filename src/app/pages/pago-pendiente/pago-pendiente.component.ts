@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EstadoCuenta } from '../../interfaces/estado-cuenta';
 import { NzTableFilterFn, NzTableFilterList, NzTableSortFn, NzTableSortOrder } from 'ng-zorro-antd/table';
-import { ActivatedRoute,Params } from '@angular/router';
+import { ActivatedRoute,Params, Router } from '@angular/router';
 import { PagoPendienteService } from 'src/app/services/pago-pendiente.service';
 
 
@@ -20,7 +20,8 @@ pagospendientes = []
 
 
   constructor( private readonly pagopendienteservice :PagoPendienteService,
-               private activeRoute: ActivatedRoute) { }
+               private activeRoute: ActivatedRoute,
+               private router : Router) { }
 
 geteectapendiente(idcontr:string){
   const token = sessionStorage.getItem('token');
@@ -110,4 +111,9 @@ geteectapendiente(idcontr:string){
     this.visible = false;
     this.listOfDisplayData = this.listOfData.filter((item: EstadoCuenta) => item.nperiodo.indexOf(this.searchValue) !== -1);
   }
+
+  verEstadoCuenta(idx:number){
+    this.router.navigate(['/realizarpago', idx]);
+    }
+
 }

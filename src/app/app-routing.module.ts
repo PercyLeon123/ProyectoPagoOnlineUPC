@@ -12,7 +12,8 @@ import { EstadoCuentaComponent } from './pages/estado-cuenta/estado-cuenta.compo
 const routes: Routes = [
   {path:'', component:LoginComponent},
   {path:'PagoPendiente', component:PagoPendienteComponent},
-  {path:'PagoOnline', component:PagoOnlineComponent},
+  {path:'realizarpago/:id', component:PagoOnlineComponent},
+  
   {path:'Login', component:LoginComponent},
   {path: 'Logout', component:LogoutComponent},
   {path:'Restablecercont', component:RestablecercontasenaComponent},

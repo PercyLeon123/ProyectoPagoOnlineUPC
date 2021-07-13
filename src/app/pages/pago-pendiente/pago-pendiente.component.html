@@ -31,7 +31,7 @@
 </div>
 
 <div class="container mt-5">
-    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+    <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed" [nzScroll]="{ x: '1100px' }"> 
         <thead>
             <tr>
                 <th nzCustomFilter>
@@ -58,7 +58,9 @@
                  <td>{{ data.fracciona }}</td>
                 <td>{{ data.des_fracciona }}</td>
                 <td>{{ data.imp_deuda }}</td>
-                <td><a href="">Pagar</a></td>
+                <td><input type="button" name = "" 
+                    id="buyButton" value ="Pago Online" data-producto ="Pago Tributos municipalidad de Huancavelica" 
+                    (click)="verEstadoCuenta(data.code)" > 	</td>
             </tr>
         </tbody>
     </nz-table>
@@ -75,3 +77,8 @@
     </nz-dropdown-menu>
 
 </div>
+
+
+    
+    <!-- Incluye Culqi Checkout en tu sitio web-->
+

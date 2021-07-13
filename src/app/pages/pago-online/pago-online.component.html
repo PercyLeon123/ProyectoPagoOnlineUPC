@@ -1,6 +1,6 @@
 <div class="container my-5">
     <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading">Pago Pendiente 15-06-2021</h4>
+        <h4 class="alert-heading">Pago Pendiente   {{id}} </h4>
         <p> Hola <b>{{user}}</b> paga en linea con cualquiera de tus tarjetas, no dejes que los interese aumenten</p>
         <hr>
         <p class="mb-0">Paga seguro tus arbitrios desde nuestra plataforma</p>
@@ -11,7 +11,7 @@
     <form class="needs-validation" novalidate="">
         <hr class="mb-4">
 
-        <h4 class="mb-3">Paga en Linea</h4>
+        <h4 class="mb-3">Paga en Linea {{id}} </h4>
 
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
@@ -30,7 +30,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="cc-name">Name on card</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+            <input type="text" class="form-control" id="cc-name" placeholder="" required=" " value ="{{user}}">
             <small class="text-muted">Nombre de la Tarjeta</small>
             <div class="invalid-feedback">
               Nombre de la tarjeta es requerido
@@ -61,6 +61,6 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Realizar Pago</button>
+        <button class="btn btn-primary btn-lg btn-block" (click)="success()">Realizar Pago</button>
       </form>
 </div>
